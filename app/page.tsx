@@ -1,12 +1,11 @@
 "use client";
 
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import NavBar from './component/NavBar';
 import Header from './component/Header';
 import RestaurantCard from './component/RestaurantCard';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] }) 
 
 export default function Home() {
   
