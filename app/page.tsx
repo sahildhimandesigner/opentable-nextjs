@@ -12,11 +12,20 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const router = useRouter();
   const [location, setLocation] = useState('');
-  const notFound = ['banana', 'apple'];
+  // const notFound = ['banana', 'apple'];
+
+  const notFound = [
+    { id: 1, name: 'banana' },
+    { id: 2, name: 'apple' },
+    { id: 3, name: 'orange' },
+    // ... other objects
+  ];
+
+  const compareItems = notFound.find(item => item.name === location);
 
   const searchHandler = () => {
-    if(notFound.includes(location)){
-      alert('Prodcut not found ' + location);
+    if(compareItems){
+      alert('Prodcut not found ' + compareItems.name);
       return
     }
     else {
