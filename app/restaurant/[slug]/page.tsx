@@ -1,5 +1,7 @@
 import Link from "next/link";
 import NavBar from "../../component/NavBar";
+import Header from "./components/Header";
+import RestaurantNavBar from "./components/RestaurantNavBar";
 
 export default function RestaurantDetails(){
     return(
@@ -8,23 +10,12 @@ export default function RestaurantDetails(){
                 {/* NAVBAR */}
                 <NavBar />
                 {/* NAVBAR */} {/* HEADER */}
-                <div className="h-96 overflow-hidden">
-                    <div
-                        className="bg-center bg-gradient-to-r from-[#0f1f47] to-[#5f6984] h-full flex justify-center items-center"
-                    >
-                        <h1 className="text-7xl text-white captitalize text-shadow text-center">
-                        Milestones Grill (Toronto)
-                        </h1>
-                    </div>
-                </div>
+                <Header />
                 {/* HEADER */} {/* DESCRIPTION PORTION */}
                 <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11">
                     <div className="bg-white w-[70%] text-black rounded p-3 shadow">
                         {/* RESAURANT NAVBAR */}
-                        <nav className="flex text-reg border-b pb-2">
-                            <Link href="/restaurant/milestones-grill" className="mr-7"> Overview </Link>
-                            <Link href="/restaurant/milestones-grill/menu" className="mr-7"> Menu </Link>
-                        </nav>
+                        <RestaurantNavBar />
                         {/* RESAURANT NAVBAR */} {/* TITLE */}
                         <div className="mt-4 border-b pb-6">
                             <h1 className="font-bold text-6xl">Milesstone Grill</h1>
