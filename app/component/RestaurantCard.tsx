@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RestaurantType } from "../page";
+import Price from "./Price";
 
 interface Props {
   restaurant: RestaurantType;
@@ -10,7 +11,7 @@ const RestaurantCard = ({restaurant}:Props) => {
         <div
               className="w-64 h-72 m-3 rounded overflow-hidden border cursor-pointer"
             >
-              <Link href="/restaurant/milestones">
+              <Link href={`/restaurant/${restaurant.slug}`}>
               <img
                 src={restaurant.main_image}
                 alt=""
@@ -24,7 +25,7 @@ const RestaurantCard = ({restaurant}:Props) => {
                 </div>
                 <div className="flex text-reg font-light capitalize">
                   <p className=" mr-3">{restaurant.cusine.name}</p>
-                  <p className="mr-3">$$$$</p>
+                  <Price price={restaurant.price} />
                   <p>{restaurant.location.name}</p>
                 </div>
                 <p className="text-sm mt-1 font-bold">Booked 3 times today</p>
