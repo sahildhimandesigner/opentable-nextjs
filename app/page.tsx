@@ -1,24 +1,44 @@
-"use client";
-
-import { Inter } from '@next/font/google'
 import Header from './component/Header';
 import RestaurantCard from './component/RestaurantCard';
+import { PrismaClient, Cuisine, Location, PRICE } from '@prisma/client';
 
-const inter = Inter({ subsets: ['latin'] }) 
+export interface RestaurantType {
+  id: number;
+  name: string;
+  main_image: string;
+  cusine: Cuisine;
+  location: Location;
+  price: PRICE;
+}
 
-export default function Home() {
+const prisma = new PrismaClient();
+
+const fetchRestaurants = async () => {
+  const restaurant = await prisma.restaurant.findMany({
+    select: {
+      id: true,
+      name: true,
+      main_image: true,
+      cusine: true,
+      location: true,
+      price:true
+    }
+  });
+  return restaurant;
+}
+
+export default async function Home() {
+  const restaurantData = await fetchRestaurants();
   
   return (
     <main>
-      {/* HEADER */}
       <Header />
-      {/* HEADER */} {/* CARDS */}
       <div className="py-3 px-36 mt-10 flex flex-wrap">
-        {/* CARD */}
-        <RestaurantCard />
-        {/* CARD */}
+        {restaurantData.map((restaurant) => {
+          return <RestaurantCard restaurant={restaurant} />
+        })}
+        
       </div>
-      {/* CARDS */}
     </main>
   )
 }
