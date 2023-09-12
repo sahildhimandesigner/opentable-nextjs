@@ -1,29 +1,19 @@
-import NavBar from "../../../component/NavBar";
 import Header from "../../../component/Header";
 import RestaurantNavBar from "../components/RestaurantNavBar";
 import Menu from "../Menu";
 
-const RestaurantMenuPage = () => {
-    return(
-        <main className="bg-gray-100 min-h-screen w-screen">
-          <main className="max-w-screen-2xl m-auto bg-white">
-            {/* NAVBAR */}
-            <NavBar />
-            {/* NAVBAR */} {/* HEADER */}
-            <Header />
-            {/* HEADER */} {/* DESCRIPTION PORTION */}
-            <div className="flex m-auto w-2/3 text-black justify-between items-start 0 -mt-11">
-              <div className="bg-white w-[100%] rounded p-3 shadow">
-                {/* RESAURANT NAVBAR */}
-                <RestaurantNavBar />
-                {/* RESAURANT NAVBAR */} {/* MENU */}
-                <Menu />
-                {/* MENU */}
-              </div>
-            </div>
-            {/* DESCRIPTION PORTION */}
-          </main>
-        </main>
+const RestaurantMenuPage = ({
+  children,
+}:{
+  children: React.ReactNode;
+}) => {
+    return(      
+      <>  
+        <div className="bg-white w-[100%] rounded p-3 shadow">
+          <RestaurantNavBar />
+          <Menu />
+        </div>
+      </>
     )
 }
 
